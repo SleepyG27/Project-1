@@ -5,7 +5,7 @@
 using namespace std;
 
 // Define which branch to test
-#define TEST_CIRCLE_TYPE  // Comment this out to test CircleType
+    #define TEST_POINT_TYPE  // Comment this out to test CircleType
 
 int main() {
     cout << fixed << setprecision(1) << showpoint;
