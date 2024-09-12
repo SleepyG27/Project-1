@@ -1,36 +1,51 @@
 #include <iostream>
-#include "PointType.h"
 #include <iomanip>
-using namespace std; 
+#include "PointType.h"
+#include "CircleType.h"
+using namespace std;
 
-//This is to test the main pointtype class
+// Define which branch to test
+#define TEST_CIRCLE_TYPE  // Comment this out to test CircleType
 
+int main() {
+    cout << fixed << setprecision(1) << showpoint;
 
+#ifdef TEST_POINT_TYPE
+    cout << "Testing PointType" << endl;
+    PointType<int> p1I;
+    PointType<double> p1D;
 
-int main() 
-{cout << fixed << setprecision(1) << showpoint;
-{cout << "From default Constructor"<<endl;
-            PointType<int> p1I;
-            PointType< double> p1D;
-            cout << "Integer point:";
-            p1I.print();
-            cout << "Double point:";
-            p1D.print();
-            
-           cout << "\n Constructor with parameters"<<endl;
-            PointType<int> p2I(3, 5);
-            PointType< double> p2D(3.5, 5.5);
-            cout << "Integer point:";  
-            p2I.print();
-            cout << "Double point:";  
-            p2D.print();    
-            
-           cout<< "\n Distance calculation" << endl;
-            double distance = p1I - p2I;
-             cout << distance << endl;
+    cout << "Integer point: ";
+    p1I.print();
+    cout << "Double point: ";
+    p1D.print();
 
-           cout<< "\n Distance calculation" << endl;
-          distance = p1D - p2D;
-           cout << distance << endl;
+    PointType<int> p2I(3, 5);
+    PointType<double> p2D(3.5, 5.5);
 
-           };
+    cout << "Integer point: ";
+    p2I.print();
+    cout << "Double point: ";
+    p2D.print();
+
+    double distance = p1I - p2I;
+    cout << "\nDistance between p1I and p2I: " << distance << endl;
+
+    distance = p1D - p2D;
+    cout << "Distance between p1D and p2D: " << distance << endl;
+    
+
+#elif defined(TEST_CIRCLE_TYPE)
+    cout << "Testing CircleType" << endl;
+    PointType<double> center(0.0, 0.0);
+    PointType<double> circumference(3.0, 4.0);
+
+    CircleType<double> circle(center, circumference);
+
+    circle.printCenterPoint();
+    circle.printCircumPoint();
+    circle.print();
+#endif
+
+    return 0;
+}
