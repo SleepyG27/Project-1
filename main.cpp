@@ -1,7 +1,6 @@
 #include <iostream>
 #include <iomanip>
 #include "PointType.h"
-#include "CircleType.h"
 using namespace std;
 
 // Define which branch to test
