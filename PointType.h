@@ -11,7 +11,7 @@ private:
 
 public:
   //Default constructor 
-  PointType() {x = 0, y =0; {cout<< fixed << setprecision(1)
+  PointType() {x = 0, y =0; { std::cout << fixed << setprecision(1)
 
   //Constructor with parameters
   PointType(T ux, T uy) : x(ux), y(uy) { ; }
