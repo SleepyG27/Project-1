@@ -1,5 +1,9 @@
 #pragma once
 #include "PointType.h"
+#include <cmath>
+#include <iostream>
+
+using namespace std;
 
 template <class T>
 class CircleType {
@@ -23,34 +27,34 @@ public:
     void setCircumPoint(T, T);
 
     // Returns the center point as an ordered pair
-    PointType<T> getCenterPoint();
+    PointType<T> getCenterPoint() const;
 
     // Returns the circumference point as an ordered pair
-    PointType<T> getCircumPoint();
+    PointType<T> getCircumPoint() const;
 
     // Returns the x and y coordinates of the center point
-    void getCenterPoint(T &xCenter, T &yCenter);
+    void getCenterPoint(T &xCenter, T &yCenter) const;
 
     // Returns the x and y coordinates of the circumference point
-    void getCircumPoint(T &xCircum, T &yCircum);
+    void getCircumPoint(T &xCircum, T &yCircum) const;
 
     // Displays the (x, y) coordinates of the center point
-    void printCenterPoint();
+    void printCenterPoint() const;
 
     // Displays the (x, y) coordinates of the circumference point
-    void printCircumPoint();
+    void printCircumPoint() const;
 
     // Returns the radius of the circle
-    double calcRadius();
+    double calcRadius() const;
 
     // Returns the area of the circle
-    double calcArea();
+    double calcArea() const;
 
     // Returns the circumference of the circle
-    double calcCircumference();
+    double calcCircumference() const;
 
     // Writes the radius, area, and circumference of the circle to the display
-    void print();
+    void print() const;
 
 private:
     PointType<T> centerPoint;
@@ -84,55 +88,55 @@ void CircleType<T>::setCircumPoint(T xCircum, T yCircum) {
 }
 
 template <class T>
-PointType<T> CircleType<T>::getCenterPoint() {
+PointType<T> CircleType<T>::getCenterPoint() const {
     return centerPoint;
 }
 
 template <class T>
-void CircleType<T>::getCenterPoint(T &xCenter, T &yCenter) {
+void CircleType<T>::getCenterPoint(T &xCenter, T &yCenter) const {
     xCenter = centerPoint.getX();
     yCenter = centerPoint.getY();
 }
 
 template <class T>
-PointType<T> CircleType<T>::getCircumPoint() {
+PointType<T> CircleType<T>::getCircumPoint() const {
     return circumPoint;
 }
 
 template <class T>
-void CircleType<T>::getCircumPoint(T &xCircum, T &yCircum) {
+void CircleType<T>::getCircumPoint(T &xCircum, T &yCircum) const {
     xCircum = circumPoint.getX();
     yCircum = circumPoint.getY();
 }
 
 template<class T>
-void CircleType<T>::printCenterPoint() {
+void CircleType<T>::printCenterPoint() const {
     centerPoint.print();
 }
 
 template<class T>
-void CircleType<T>::printCircumPoint() {
+void CircleType<T>::printCircumPoint() const {
     circumPoint.print();
 }
 
 template<class T>
-double CircleType<T>::calcRadius() {
+double CircleType<T>::calcRadius() const {
     // distance formula between the center point and the circumference point
     return centerPoint - circumPoint;
 }
 
 template<class T>
-double CircleType<T>::calcCircumference() {
+double CircleType<T>::calcCircumference() const {
     return 2 * PI * calcRadius();
 }
 
 template<class T>
-double CircleType<T>::calcArea() {
+double CircleType<T>::calcArea() const {
     return PI * pow(calcRadius(), 2);
 }
 
 template <class T>
-void CircleType<T>::print() {
+void CircleType<T>::print() const {
     cout << "Radius: " << calcRadius() << endl;
     cout << "Area: " << calcArea() << endl;
     cout << "Circumference: " << calcCircumference() << endl;

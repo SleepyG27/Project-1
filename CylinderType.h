@@ -4,14 +4,25 @@
 template <class T>
 class CylinderType : public CircleType<T> {
 public:
+    // Default constructor
     CylinderType();
+
+    // Constructor with height, center, and circumference points
     CylinderType(T height, PointType<T> center, PointType<T> circum);
 
+    // Sets the height of the cylinder
     void setHeight(T height);
+
+    // Gets the height of the cylinder
     T getHeight() const;
 
+    // Calculates and returns the volume of the cylinder
     double calcVolume() const;
+
+    // Calculates and returns the surface area of the cylinder
     double calcSurfaceArea() const;
+
+    // Prints all properties of the cylinder
     void print() const;
 
 private:
